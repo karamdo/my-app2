@@ -1,3 +1,3 @@
-# codeforces API training
+# first API project
 
-first API project
+codeforces API training
