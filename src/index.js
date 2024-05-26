@@ -7,8 +7,7 @@ function App() {
   const [count, setCount] = useState(0);
   console.log("rerender");
   React.useEffect(() => {
-    console.log("useEffect");
-    fetch(` https://codeforces.com/api/user.rating?handle=karamdo`)
+    fetch(`https://codeforces.com/api/user.rating?handle=karamdo`)
       .then((res) => res.json())
       .then((data) =>
         setSw({
@@ -19,7 +18,19 @@ function App() {
           change: data.result[count].newRating - data.result[count].oldRating,
         })
       );
+    fetch(`https://codeforces.com/api/user.info?handles=karamdo`)
+      .then((res) => res.json())
+      .then((data) =>
+        setSw((old) => {
+          return {
+            ...old,
+            ranking: data.result[0].rank,
+            // data: data,
+          };
+        })
+      );
   }, [count]);
+
   return (
     <div>
       <h1>{count}</h1>
