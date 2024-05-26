@@ -1,36 +1,8 @@
 body {
-  background-color: aquamarine;
+  background-color: rgb(138, 138, 138);
   margin: 30px;
 }
 
 pre {
   font-size: 200%;
 }
-
-/* .container {
-  padding: 30px;
-  border: 2px black solid;
-  border-radius: 20px;
-  width: 80dvh;
-  height: 80dvh;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.container > *:not(.ph) {
-  margin-block: 5px;
-
-  align-self: flex-start;
-}
-
-.ph {
-  width: 100%;
-  height: 50%;
-}
-.ph2 {
-  width: 40px;
-  height: 40px;
-  margin-block: 10px;
-} */

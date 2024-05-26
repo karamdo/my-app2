@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-// import Star from "./Star";
 
 function App() {
   const [sw, setSw] = useState({});
@@ -9,15 +8,23 @@ function App() {
   console.log("rerender");
   React.useEffect(() => {
     console.log("useEffect");
-    fetch(`https://swapi.dev/api/people/${count}`)
+    fetch(` https://codeforces.com/api/user.rating?handle=karamdo`)
       .then((res) => res.json())
-      .then((data) => setSw(data));
+      .then((data) =>
+        setSw({
+          handle: data.result[count].handle,
+          rank: data.result[count].rank,
+          oldrating: data.result[count].oldRating,
+          newRating: data.result[count].newRating,
+          change: data.result[count].newRating - data.result[count].oldRating,
+        })
+      );
   }, [count]);
   return (
     <div>
       <h1>{count}</h1>
       <button onClick={() => setCount(count + 1)}>++</button>
-      <pre>{JSON.stringify(sw, null, 4)}</pre>
+      <pre>{JSON.stringify(sw, null, 2)}</pre>
     </div>
   );
 }
